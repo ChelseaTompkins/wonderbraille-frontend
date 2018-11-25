@@ -1,0 +1,22 @@
+<div class="card">
+    <h5 class="card-header">Question {{activeQuestionIndex + 1}}</h5>
+    <div class="card-body">
+      <h5 class="card-title">{{questions[activeQuestionIndex].question}}</h5>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='A'}">
+            <input (click)="selectAnswer('A')" type="radio" name="options" id="option1" autocomplete="off"> {{questions[activeQuestionIndex].A}}
+          </label>
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='B'}">
+            <input (click)="selectAnswer('B')" type="radio" name="options" id="option2" autocomplete="off"> {{questions[activeQuestionIndex].B}}
+          </label>
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='C'}">
+            <input (click)="selectAnswer('C')" type="radio" name="options" id="option3" autocomplete="off"> {{questions[activeQuestionIndex].C}}
+          </label>
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='D'}">
+            <input (click)="selectAnswer('D')" type="radio" name="options" id="option4" autocomplete="off"> {{questions[activeQuestionIndex].D}}
+          </label>
+          <button class="btn btn-info" (click)="checkEnd()" (click)="checkCorrect(userAnswer)">Submit</button>
+        </div>
+    </div>
+  </div>
+
