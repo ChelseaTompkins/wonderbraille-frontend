@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentDashboardComponent implements OnInit {
 
+// clicked = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  // isClicked() {
+  //   this.clicked = true;
+  // }
 
 }

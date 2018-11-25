@@ -23,6 +23,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/font-awesome/css/font-awesome.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
@@ -58,7 +59,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "wonderbrl-frontend:build"
+            "browserTarget": "wonderbrl-frontend:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
