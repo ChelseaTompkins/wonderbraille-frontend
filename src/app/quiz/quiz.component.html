@@ -1,21 +1,22 @@
 <div class="card">
-    <h5 class="card-header">Question {{activeQuestionIndex + 1}}</h5>
+    <h3 class="card-header">Question {{activeQuestionIndex + 1}}</h3>
     <div class="card-body">
-      <h5 class="card-title">{{questions[activeQuestionIndex].question}}</h5>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <h4 class="card-title">{{getQuestions()[activeQuestionIndex].question}}</h4>
+      <div><img src="{{getQuestions()[activeQuestionIndex].img}}"></div>
+      <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 2vh;">
           <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='A'}">
-            <input (click)="selectAnswer('A')" type="radio" name="options" id="option1" autocomplete="off"> {{questions[activeQuestionIndex].A}}
+            <input (click)="selectAnswer('A')" type="radio" name="options" id="option1" autocomplete="off"> {{getQuestions()[activeQuestionIndex].A}}
           </label>
           <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='B'}">
-            <input (click)="selectAnswer('B')" type="radio" name="options" id="option2" autocomplete="off"> {{questions[activeQuestionIndex].B}}
+            <input (click)="selectAnswer('B')" type="radio" name="options" id="option2" autocomplete="off"> {{getQuestions()[activeQuestionIndex].B}}
           </label>
           <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='C'}">
-            <input (click)="selectAnswer('C')" type="radio" name="options" id="option3" autocomplete="off"> {{questions[activeQuestionIndex].C}}
+            <input (click)="selectAnswer('C')" type="radio" name="options" id="option3" autocomplete="off"> {{getQuestions()[activeQuestionIndex].C}}
           </label>
           <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='D'}">
-            <input (click)="selectAnswer('D')" type="radio" name="options" id="option4" autocomplete="off"> {{questions[activeQuestionIndex].D}}
+            <input (click)="selectAnswer('D')" type="radio" name="options" id="option4" autocomplete="off"> {{getQuestions()[activeQuestionIndex].D}}
           </label>
-          <button class="btn btn-info" (click)="checkEnd()" (click)="checkCorrect(userAnswer)">Submit</button>
+          <button class="btn btn-info" (click)="onSubmit(userAnswer)">Submit</button>
         </div>
     </div>
   </div>

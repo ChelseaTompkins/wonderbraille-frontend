@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface Question {
-  question: string;
-  A: string;
-  B: string;
-  C: string;
-  D: string;
-  answer: 'A' | 'B' | 'C' | 'D';
-}
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-quiz',
@@ -15,35 +7,33 @@ export interface Question {
   styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
-
-  questions: Question[] = [
-    {question: 'What color is the sky?', A: 'Blue', B: 'Green', C: 'Yellow', D: 'Purple', answer: 'A'},
-    {question: 'What color is the grass?', A: 'Blue', B: 'Green', C: 'Yellow', D: 'Purple', answer: 'B'}
-  ];
+  backendService: BackendService;
   userAnswer = '';
   activeQuestionIndex = 0;
 
-  constructor() { }
+  constructor(backendService: BackendService) {
+    this.backendService = backendService;
+   }
 
   ngOnInit() {
+    this.backendService.fetchQuestions();
   }
-
-  checkCorrect (userAnswer: string) {
-    if (this.questions[this.activeQuestionIndex].answer === userAnswer) {
-      console.log('correct');
-      this.activeQuestionIndex++;
-    } else {
-      console.log('try again');
-    }
+  getQuestions() {
+    return this.backendService.getQuestions();
   }
 
   selectAnswer (userAnswer: string) {
     this.userAnswer = userAnswer;
-    console.log(userAnswer);
+    console.log('selectAnswer', this.userAnswer);
   }
 
-  checkEnd() {
-    if (this.questions.length === this.activeQuestionIndex + 1) {
+  onSubmit(userAnswer: string) {
+    if (this.getQuestions()[this.activeQuestionIndex].answer !== userAnswer) {
+      console.log('try again');
+    } else {
+      this.activeQuestionIndex++;
+    }
+    if (this.getQuestions().length === this.activeQuestionIndex + 1) {
       alert('Quiz complete');
       this.activeQuestionIndex = 0;
     }
