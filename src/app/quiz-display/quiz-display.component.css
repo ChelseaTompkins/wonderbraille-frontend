@@ -1,0 +1,18 @@
+.display-font {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.card{
+  box-shadow: 5px 5px lightgray;
+}
+
+.card:hover{
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+  -webkit-transition: all .4s ease-in-out;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+}

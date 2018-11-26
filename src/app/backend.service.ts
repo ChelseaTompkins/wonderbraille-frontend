@@ -4,6 +4,7 @@ import { Http, Response } from '@angular/http';
 // import 'rxjs/add/operator/map';
 
 export interface Instructor {
+  id: number;
   instructorName: string;
   instructorEmail: string;
 }

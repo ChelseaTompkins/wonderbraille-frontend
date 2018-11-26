@@ -1,22 +1,22 @@
 <div class="card">
-    <h3 class="card-header">Question {{activeQuestionIndex + 1}}</h3>
+    <h4 class="card-header quiz-font">Question {{activeQuestionIndex + 1}}</h4>
     <div class="card-body">
-      <h4 class="card-title">{{getQuestions()[activeQuestionIndex].question}}</h4>
+      <h4 class="card-title quiz-font">{{getQuestions()[activeQuestionIndex].question}}</h4>
       <div><img src="{{getQuestions()[activeQuestionIndex].img}}"></div>
       <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-top: 2vh;">
-          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='A'}">
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='A'}" class="quiz-font">
             <input (click)="selectAnswer('A')" type="radio" name="options" id="option1" autocomplete="off"> {{getQuestions()[activeQuestionIndex].A}}
           </label>
-          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='B'}">
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='B'}" class="quiz-font">
             <input (click)="selectAnswer('B')" type="radio" name="options" id="option2" autocomplete="off"> {{getQuestions()[activeQuestionIndex].B}}
           </label>
-          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='C'}">
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='C'}" class="quiz-font">
             <input (click)="selectAnswer('C')" type="radio" name="options" id="option3" autocomplete="off"> {{getQuestions()[activeQuestionIndex].C}}
           </label>
-          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='D'}">
+          <label [ngClass]="{'btn btn-secondary' : true, 'active' : userAnswer==='D'}" class="quiz-font">
             <input (click)="selectAnswer('D')" type="radio" name="options" id="option4" autocomplete="off"> {{getQuestions()[activeQuestionIndex].D}}
           </label>
-          <button class="btn btn-info" (click)="onSubmit(userAnswer)">Submit</button>
+          <button class="btn btn-info quiz-font" (click)="onSubmit(userAnswer)">Submit</button>
         </div>
     </div>
   </div>
