@@ -1,18 +1,9 @@
-<!-- <div *ngFor="let instructor of getInstructors()">
-  <div style="margin: 3vh; float: left; box-shadow: 5px 5px lightgray;" class="card w-25">
-    <div class="card-body">
-      <h5 class="card-title" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">{{instructor.instructorName}}</h5>
-      <p class="card-text"><a style="color: black; font-family: Verdana, Geneva, Tahoma, sans-serif;" href="mailto:{{instructor.instructorEmail}}"><i class="fas fa-envelope"></i> {{instructor.instructorEmail}}</a></p>
-       <a href="#" class="btn btn-primary">Button</a> -->
-    <!-- </div>
-  </div>
-</div> -->
-<div style="margin: 10vh;">
+<div style="margin: 10vh;" class="instructor-display">
   <table class="table table-hover" style="border: 1px solid lightgray">
       <thead>
         <tr>
-          <th scope="col" class="instructor-font">Name</th>
-          <th scope="col" class="instructor-font">Email</th>
+          <th scope="col" style="color:rgb(19, 132, 150);" class="instructor-font">Name</th>
+          <th scope="col" style="color:rgb(19, 132, 150);" class="instructor-font">Email</th>
         </tr>
       </thead>
       <tbody *ngFor="let instructor of getInstructors()">

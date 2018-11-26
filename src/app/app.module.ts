@@ -13,10 +13,12 @@ import { QuizDisplayComponent } from './quiz-display/quiz-display.component';
 import { InstructorInfoComponent } from './instructor-info/instructor-info.component';
 import { WbResourcesComponent } from './wb-resources/wb-resources.component';
 import { StuDashContentComponent } from './stu-dash-content/stu-dash-content.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: StuDashContentComponent },
+  { path: '', component: LandingPageComponent },
+  { path: 'dashboard', component: StuDashContentComponent },
   { path: 'quizzes', component: QuizDisplayComponent },
   { path: 'braille1-quiz1', component: QuizComponent },
   { path: 'instructors', component: InstructorInfoComponent },
@@ -32,7 +34,8 @@ const appRoutes: Routes = [
     QuizDisplayComponent,
     InstructorInfoComponent,
     WbResourcesComponent,
-    StuDashContentComponent
+    StuDashContentComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

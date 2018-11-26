@@ -1,0 +1,20 @@
+.landing-dash{
+  color: white;
+}
+
+.landing-dash:hover{
+  color: rgb(203, 212, 219);
+}
+
+.landing-content {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.non-readers, .braille-readers, .aud-readers, .pre-readers, .cane-img{
+  font-size: 20px;
+  padding-bottom: 2vh;
+}
+
+.non-readers, .aud-readers{
+  text-align: right;
+}
