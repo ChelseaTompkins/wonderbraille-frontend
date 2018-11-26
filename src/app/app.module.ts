@@ -14,6 +14,8 @@ import { InstructorInfoComponent } from './instructor-info/instructor-info.compo
 import { WbResourcesComponent } from './wb-resources/wb-resources.component';
 import { StuDashContentComponent } from './stu-dash-content/stu-dash-content.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
 
 
 const appRoutes: Routes = [
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     HttpModule,
     AngularFontAwesomeModule
   ],
-  providers: [BackendService],
+  providers: [BackendService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

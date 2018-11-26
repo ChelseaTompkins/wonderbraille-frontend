@@ -11,14 +11,14 @@
       </div>
       <div class="col">
         <h4 style="padding-bottom: 2vh; color: white;">Student Login</h4>
-        <form>
+        <form action="/login" method="post">
             <div class="form-group">
-                <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+                <input type="email" class="form-control" name="studentEmail" id="studentEmail" placeholder="Email">
               </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+              <input type="password" class="form-control" name="studentEmail" id="studentPassword" placeholder="Password">
             </div>
-            <button class="btn btn-dark">Welcome Back!</button>
+            <button type="submit" class="btn btn-dark">Welcome Back!</button>
           </form>
       </div>
     </div>
@@ -31,13 +31,11 @@
     <div class="col">
       <div class="braille-readers landing-content"><i class="fas fa-braille braille"></i> 8.5% of students are identified as braille readers</div>
       <div class="pre-readers landing-content"><i class="fas fa-child pre"></i> 18.3% of students are pre-readers</div>
-      <!-- <div class="cane-img landing-content"><i class="fas fa-blind cane"></i> 70% of adults who are blind are unemployed</div> -->
     </div>
 
     <div class="col">
       <div class="non-readers landing-content"><i class="fas fa-book-reader book"></i> 34.8% of students are identified as non-readers</div>
       <div class="aud-readers landing-content"><i class="fas fa-volume-up aud"></i> 9.2% of students are defined as auditory readers</div>
-      <!-- <div class="cane-img landing-content"><i class="fas fa-blind cane"></i> 50% of high school students who are blind dropout before graduation</div> -->
     </div>
   </div>
 </div>
@@ -61,7 +59,7 @@
               <div class="form-group">
                 <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password">
               </div>
-              <button class="btn btn-info">Register me!</button>
+              <button type="submit" class="btn btn-info">Register me!</button>
             </form>
         </div>
       </div>
