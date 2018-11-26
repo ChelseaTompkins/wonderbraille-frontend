@@ -4,8 +4,24 @@
 
 <div class="jumbotron jumbotron-fluid" style="background-color: rgb(19, 132, 150);">
   <div class="container">
-    <h1 class="display-4" style="color:white;">Welcome to WonderBraille</h1>
-    <p class="lead" style="color:white;">Where learning braille is made easy, fun, and interactive!</p>
+    <div class="row">
+      <div class="col">
+        <h1 class="display-5" style="color:white;">Welcome to WonderBraille</h1>
+        <p class="lead" style="color:white;">Where learning braille is made easy, fun, and interactive!</p>
+      </div>
+      <div class="col">
+        <h4 style="padding-bottom: 2vh; color: white;">Student Login</h4>
+        <form>
+            <div class="form-group">
+                <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+              </div>
+            <div class="form-group">
+              <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+            </div>
+            <button class="btn btn-dark">Welcome Back!</button>
+          </form>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -28,7 +44,30 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">Fluid jumbotron</h1>
-      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <div class="row">
+        <div class="col">
+          <h2 class="display-5" style="color: rgb(19, 132, 150);">New to WonderBraille?</h2>
+          <h6 class="lead">Enroll here to become a WonderBraille Student!</h6>
+        </div>
+        <div class="col">
+          <h4 style="padding-bottom: 2vh; color: rgb(19, 132, 150);">Register as a WonderBraille Student</h4>
+          <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Full Name">
+              </div>
+              <div class="form-group">
+                  <input type="email" class="form-control" id="formGroupExampleInput2" placeholder="Email">
+                </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Password">
+              </div>
+              <button class="btn btn-info">Register me!</button>
+            </form>
+        </div>
+      </div>
     </div>
   </div>
+
+  <nav class="navbar navbar-light fixed-bottom" style="background-color:black;">
+      <a href="/"><span class="navbar-brand mb-0 h1 landing-dash" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">WonderBraille</span></a>
+  </nav>
