@@ -1,8 +1,8 @@
 <div *ngFor="let instructor of getInstructors()">
-  <div style="margin: 5vh;" class="card w-25">
+  <div style="margin: 3vh; float: left; box-shadow: 5px 5px lightgray;" class="card w-25">
     <div class="card-body">
       <h5 class="card-title">{{instructor.instructorName}}</h5>
-      <p class="card-text"><i class="fas fa-envelope"></i><a href="mailto:{{instructor.instructorEmail}}"> {{instructor.instructorEmail}}</a></p>
+      <p class="card-text"><a style="color: black;" href="mailto:{{instructor.instructorEmail}}"><i class="fas fa-envelope"></i> {{instructor.instructorEmail}}</a></p>
       <!-- <a href="#" class="btn btn-primary">Button</a> -->
     </div>
   </div>

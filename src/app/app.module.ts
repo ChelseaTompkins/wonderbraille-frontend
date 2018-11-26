@@ -12,9 +12,11 @@ import { NavComponent } from './nav/nav.component';
 import { QuizDisplayComponent } from './quiz-display/quiz-display.component';
 import { InstructorInfoComponent } from './instructor-info/instructor-info.component';
 import { WbResourcesComponent } from './wb-resources/wb-resources.component';
+import { StuDashContentComponent } from './stu-dash-content/stu-dash-content.component';
 
 
 const appRoutes: Routes = [
+  { path: '', component: StuDashContentComponent },
   { path: 'quizzes', component: QuizDisplayComponent },
   { path: 'braille1-quiz1', component: QuizComponent },
   { path: 'instructors', component: InstructorInfoComponent },
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     NavComponent,
     QuizDisplayComponent,
     InstructorInfoComponent,
-    WbResourcesComponent
+    WbResourcesComponent,
+    StuDashContentComponent
   ],
   imports: [
     BrowserModule,
