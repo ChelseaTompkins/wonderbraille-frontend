@@ -22,8 +22,6 @@ export class AuthService {
       if (response['token']) {
         localStorage.setItem('token', response['token']);
         this.router.navigate(['/dashboard']);
-      } else {
-        alert('Not valid');
       }
     });
   }
@@ -35,8 +33,8 @@ export class AuthService {
     });
   }
 
-  verifyStudentToken() {
-    // send headers / verify header
-  }
+//   verifyStudentToken() {
+//     // send headers / verify header
 
+//   }
 }
