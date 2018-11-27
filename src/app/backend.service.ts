@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
-// import { HttpClient } from '@angular/common/http';
+import { Response, } from '@angular/http';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
+
 // import { Subject } from 'rxjs/Subject';
 // import 'rxjs/add/operator/map';
+
 
 export interface Instructor {
   id: number;
@@ -22,42 +25,43 @@ export interface Question {
 
 @Injectable()
 export class BackendService {
-  private instructors: Instructor[] = [];
-  private questions: Question[] = [];
+  public instructors;
+  public questions;
 
-  http: Http;
-
-  constructor(http: Http) {
-    this.http = http;
-  }
+  constructor(private http: HttpClient) {}
 
   // Instructor logic
   fetchInstructors() {
-    this.http.get('/api/instructors')
-      .subscribe((response: Response) => {
-          const instructorData = response.json();
-          const instructors = instructorData.map(instructor => instructor);
-          this.instructors = instructors;
+    this.http.get('/api/instructors', {
+      headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
+    }).subscribe((response: Response) => {
+          // const instructorData = response.json();
+          // const instructors = instructorData.map(instructor => instructor);
+          this.instructors = response;
       }
     );
   }
 
-  getInstructors() {
-    return this.instructors;
-  }
+  // getInstructors() {
+  //   return this.instructors;
+  // }
 
   // Question logic
   fetchQuestions() {
-    this.http.get('/api/questions')
-      .subscribe((response: Response) => {
-        const questionData = response.json();
-        const questions = questionData.map(question => question);
-        this.questions = questions;
+    this.http.get('/api/questions', {
+      headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
+    }).subscribe((response) => {
+      this.questions = response;
+      console.log(this.questions);
+        // const questionData = response;
+        // console.log(response.json())
+        // const questions = response.map(question => question);
+        // this.questions = response;
       }
     );
   }
 
-  getQuestions() {
-    return this.questions;
-  }
+  // getQuestions() {
+  //   return this.questions;
+  // }
 }

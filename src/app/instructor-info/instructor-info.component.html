@@ -7,7 +7,7 @@
           <th scope="col" style="color:rgb(19, 132, 150);" class="instructor-font">Email</th>
         </tr>
       </thead>
-      <tbody *ngFor="let instructor of getInstructors()">
+      <tbody *ngFor="let instructor of this.backendService.instructors">
         <tr>
           <td class="instructor-font">{{instructor.instructorName}}</td>
           <a href="mailto:{{instructor.instructorEmail}}"><td style="color: black;" class="instructor-font">{{instructor.instructorEmail}}</td></a>

@@ -17,7 +17,4 @@ export class InstructorInfoComponent implements OnInit {
     this.backendService.fetchInstructors();
   }
 
-  getInstructors() {
-    return this.backendService.getInstructors();
-  }
 }

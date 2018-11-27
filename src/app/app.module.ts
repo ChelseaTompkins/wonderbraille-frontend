@@ -16,17 +16,17 @@ import { InstructorInfoComponent } from './instructor-info/instructor-info.compo
 import { WbResourcesComponent } from './wb-resources/wb-resources.component';
 import { StuDashContentComponent } from './stu-dash-content/stu-dash-content.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-// import { AuthGuard } from './auth/auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { AuthService } from './auth/auth.service';
 
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'dashboard', component: StuDashContentComponent },
-  { path: 'quizzes', component: QuizDisplayComponent },
-  { path: 'braille1-quiz1', component: QuizComponent },
-  { path: 'instructors', component: InstructorInfoComponent },
-  { path: 'resources', component: WbResourcesComponent },
+  { path: 'dashboard', component: StuDashContentComponent, canActivate: [AuthGuard] },
+  { path: 'quizzes', component: QuizDisplayComponent, canActivate: [AuthGuard] },
+  { path: 'braille1-quiz1', component: QuizComponent, canActivate: [AuthGuard] },
+  { path: 'instructors', component: InstructorInfoComponent, canActivate: [AuthGuard] },
+  { path: 'resources', component: WbResourcesComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -50,7 +50,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [BackendService, AuthService],
+  providers: [BackendService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

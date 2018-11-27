@@ -18,9 +18,6 @@ export class QuizComponent implements OnInit {
   ngOnInit() {
     this.backendService.fetchQuestions();
   }
-  getQuestions() {
-    return this.backendService.getQuestions();
-  }
 
   selectAnswer (userAnswer: string) {
     this.userAnswer = userAnswer;
@@ -28,12 +25,12 @@ export class QuizComponent implements OnInit {
   }
 
   onSubmit(userAnswer: string) {
-    if (this.getQuestions()[this.activeQuestionIndex].answer !== userAnswer) {
+    if (this.backendService.questions[this.activeQuestionIndex].answer !== userAnswer) {
       console.log('try again');
     } else {
       this.activeQuestionIndex++;
     }
-    if (this.getQuestions().length === this.activeQuestionIndex + 1) {
+    if (this.backendService.questions.length === this.activeQuestionIndex) {
       alert('Quiz complete');
       this.activeQuestionIndex = 0;
     }
