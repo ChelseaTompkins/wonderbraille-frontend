@@ -1,29 +1,40 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+// export interface Student {
+//   studentName: string;
+//   studentEmail: string;
+//   studentPassword: string | undefined;
+// }
 
 @Injectable()
 export class AuthService {
-  http: HttpClient;
-  httpHeaders: HttpHeaders;
-  req: HttpRequest<any>;
+  // private students: Student[] = [];
+  private headers = new HttpHeaders({});
+  constructor(private http: HttpClient, private router: Router) {
 
-  constructor(http: HttpClient, httpHeaders: HttpHeaders) {
-    this.http = http;
-    this.httpHeaders = httpHeaders;
   }
   // Auth
   studentLogin(body) {
-    this.http.post('/login', body)
+  this.http.post('api/auth/login', body)
     .subscribe((response: Response) => {
-
+      console.log('response', response);
+      if (response['token']) {
+        localStorage.setItem('token', response['token']);
+        this.router.navigate(['/dashboard']);
+      } else {
+        console.log('no');
+      }
     });
   }
 
   studentRegister(body) {
-    this.http.post('/register', body)
-    .subscribe((response: Response) => {
+    // this.http.post('/register', body)
+    // .subscribe((response: Response) => {
 
-    });
+    //   }
+    // });
   }
 
   verifyStudentToken() {
