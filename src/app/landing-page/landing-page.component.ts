@@ -31,7 +31,8 @@ export class LandingPageComponent implements OnInit {
 
   newStuOnSubmit() {
     // this.submit = true;
-    console.warn(this.newStudent.value);
+    this.authService.studentRegister(this.newStudent.value);
+    // console.warn(this.newStudent.value);
   }
 
   existingStuOnSubmit() {
@@ -39,9 +40,6 @@ export class LandingPageComponent implements OnInit {
     // console.warn(this.existingStudent.value);
   }
 
-  // authExistingStudent(body) {
-  //   // this.authService.verifyStudentToken()
-  // }
 
   // checkEmail() {
   //   const validEmail = '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';

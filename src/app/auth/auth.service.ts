@@ -19,22 +19,20 @@ export class AuthService {
   studentLogin(body) {
   this.http.post('api/auth/login', body)
     .subscribe((response: Response) => {
-      console.log('response', response);
       if (response['token']) {
         localStorage.setItem('token', response['token']);
         this.router.navigate(['/dashboard']);
       } else {
-        console.log('no');
+        alert('Not valid');
       }
     });
   }
 
   studentRegister(body) {
-    // this.http.post('/register', body)
-    // .subscribe((response: Response) => {
-
-    //   }
-    // });
+    this.http.post('api/auth/register', body)
+    .subscribe((response: Response) => {
+      alert('Thank you for registering!');
+    });
   }
 
   verifyStudentToken() {
