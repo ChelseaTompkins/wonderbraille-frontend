@@ -23,12 +23,9 @@ export class LandingPageComponent implements OnInit {
 
   submit = false;
 
-  constructor(private authService: AuthService) {
-   }
+  constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    console.log('asdf');
-  }
+  ngOnInit() {}
 
   newStuOnSubmit() {
     this.authService.studentRegister(this.newStudent.value);

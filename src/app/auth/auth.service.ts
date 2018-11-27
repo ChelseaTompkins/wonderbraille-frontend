@@ -16,6 +16,7 @@ export class AuthService {
   studentLogin(body) {
   this.http.post('api/auth/login', body, )
     .subscribe((response: Response) => {
+      console.log(response);
       if (response['token']) {
         localStorage.setItem('currentUser', response['token']);
         this.router.navigate(['/dashboard']);
@@ -34,7 +35,6 @@ export class AuthService {
     return this.http.get('api/instructors',  {
       headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
     }).map((response) => {
-      console.log(response);
       if (response['message']) {
         this.router.navigate(['/']);
         return false;
