@@ -2,15 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-// export interface Student {
-//   studentName: string;
-//   studentEmail: string;
-//   studentPassword: string | undefined;
-// }
-
 @Injectable()
 export class AuthService {
-  // private students: Student[] = [];
   private headers = new HttpHeaders({});
   constructor(private http: HttpClient, private router: Router) {
 
@@ -32,9 +25,4 @@ export class AuthService {
       alert('Thank you for registering!');
     });
   }
-
-//   verifyStudentToken() {
-//     // send headers / verify header
-
-//   }
 }

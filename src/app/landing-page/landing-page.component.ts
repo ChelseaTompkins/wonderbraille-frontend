@@ -30,24 +30,11 @@ export class LandingPageComponent implements OnInit {
   }
 
   newStuOnSubmit() {
-    // this.submit = true;
     this.authService.studentRegister(this.newStudent.value);
-    // console.warn(this.newStudent.value);
   }
 
   existingStuOnSubmit() {
     this.authService.studentLogin(this.existingStudent.value);
-    // console.warn(this.existingStudent.value);
   }
-
-
-  // checkEmail() {
-  //   const validEmail = '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';
-  //   if (validEmail !== this.studentEmail) {
-  //     console.warn('not valid');
-  //     return false;
-  //   }
-  //   return true;
-  // }
 }
 
