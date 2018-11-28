@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response, } from '@angular/http';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-import { headersToString } from 'selenium-webdriver/http';
+// import { headersToString } from 'selenium-webdriver/http';
 
 // import { Subject } from 'rxjs/Subject';
 // import 'rxjs/add/operator/map';
@@ -28,44 +28,41 @@ export interface Question {
 export class BackendService {
   public instructors;
   public questions;
+  public currentQuestion;
 
   constructor(private http: HttpClient) {}
 
   // Instructor logic
+
   fetchInstructors() {
     this.http.get('/api/instructors', {
       headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
     }).subscribe((response: Response) => {
-          // const instructorData = response.json();
-          // const instructors = instructorData.map(instructor => instructor);
           this.instructors = response;
       }
     );
   }
 
   // Question logic
+
   fetchQuestions() {
-    this.http.get('/api/questions', {
+    return this.http.get('/api/questions', {
       headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
-    }).subscribe((response: any) => {
-      // Displays the response object that holds student ID and currentQuestion
-      // console.log('fetchQuestions', response);
+    }).map((response: any) => {
       this.questions = response.questions;
-        // const questionData = response;
-        // console.log(response.json())
-        // const questions = response.map(question => question);
-        // this.questions = response;
+      this.currentQuestion = response.currentQuestion;
+    }
+  );
+}
+
+  // Student logic
+
+  updateStudentProgress(question: any) {
+    return this.http.put('/api/students/progress/' + question.id, {} , {
+      headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
+    }).map((response: any) => {
+        this.currentQuestion = response;
       }
     );
   }
-
-  // Student logic
-  // updateStudentProgress() {
-  //   this.http.put('/api/students/:id', {
-  //     headers: new HttpHeaders().set('token', localStorage.getItem('currentUser') || 'Invalid token')
-  //   }).subscribe((response: Response) => {
-  //     console.log('updateStudentProgress', this.fetchQuestions());
-  //     }
-  //   );
-  // }
 }

@@ -16,7 +16,14 @@ export class QuizComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.backendService.fetchQuestions();
+    this.backendService.fetchQuestions().subscribe(() => {
+      this.backendService.questions.forEach((question, i) => {
+        if (question.id === this.backendService.currentQuestion.id) {
+          this.activeQuestionIndex = i;
+          return;
+        }
+      });
+    });
   }
 
   selectAnswer (userAnswer: string) {
@@ -29,7 +36,9 @@ export class QuizComponent implements OnInit {
       console.log('try again');
     } else {
       this.activeQuestionIndex++;
-      // this.backendService.updateStudentProgress();
+      this.backendService.updateStudentProgress(this.backendService.questions[this.activeQuestionIndex]).subscribe(() => {
+        console.log('kdslnkl');
+      });
     }
     if (this.backendService.questions.length === this.activeQuestionIndex) {
       alert('Quiz complete');
