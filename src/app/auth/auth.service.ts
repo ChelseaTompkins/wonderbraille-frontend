@@ -16,7 +16,6 @@ export class AuthService {
   studentLogin(body) {
   this.http.post('api/auth/login', body, )
     .subscribe((response: Response) => {
-      console.log(response);
       if (response['token']) {
         localStorage.setItem('currentUser', response['token']);
         this.router.navigate(['/dashboard']);

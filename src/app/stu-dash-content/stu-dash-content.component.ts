@@ -12,4 +12,8 @@ export class StuDashContentComponent implements OnInit {
   ngOnInit() {
   }
 
+  logout() {
+    localStorage.clear();
+  }
+
 }

@@ -28,21 +28,29 @@ export class QuizComponent implements OnInit {
 
   selectAnswer (userAnswer: string) {
     this.userAnswer = userAnswer;
-    console.log('selectAnswer', this.userAnswer);
+    // console.log('selectAnswer', this.userAnswer);
   }
 
   onSubmit(userAnswer: string) {
     if (this.backendService.questions[this.activeQuestionIndex].answer !== userAnswer) {
       console.log('try again');
     } else {
-      this.activeQuestionIndex++;
+      if (this.backendService.questions.length === this.activeQuestionIndex + 1) {
+        alert('Quiz complete');
+        this.activeQuestionIndex = 0;
+      } else {
+        this.activeQuestionIndex++;
+      }
       this.backendService.updateStudentProgress(this.backendService.questions[this.activeQuestionIndex]).subscribe(() => {
-        console.log('kdslnkl');
       });
     }
-    if (this.backendService.questions.length === this.activeQuestionIndex) {
-      alert('Quiz complete');
-      this.activeQuestionIndex = 0;
-    }
+  }
+
+  progressBar() {
+    let progress = (this.activeQuestionIndex / this.backendService.questions.length * 100).toFixed(0) + '%';
+    let progressObj = {
+      width: progress
+    };
+    return progressObj;
   }
 }

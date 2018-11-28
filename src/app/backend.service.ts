@@ -2,11 +2,6 @@ import { Injectable } from '@angular/core';
 import { Response, } from '@angular/http';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
-// import { headersToString } from 'selenium-webdriver/http';
-
-// import { Subject } from 'rxjs/Subject';
-// import 'rxjs/add/operator/map';
-
 
 export interface Instructor {
   id: number;
@@ -65,4 +60,5 @@ export class BackendService {
       }
     );
   }
+
 }

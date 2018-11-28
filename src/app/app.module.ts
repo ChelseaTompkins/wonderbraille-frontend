@@ -9,7 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
+// import { StudentDashboardComponent } from './student-dashboard/student-dashboard.component';
 import { NavComponent } from './nav/nav.component';
 import { QuizDisplayComponent } from './quiz-display/quiz-display.component';
 import { InstructorInfoComponent } from './instructor-info/instructor-info.component';
@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     QuizComponent,
-    StudentDashboardComponent,
+    // StudentDashboardComponent,
     NavComponent,
     QuizDisplayComponent,
     InstructorInfoComponent,
