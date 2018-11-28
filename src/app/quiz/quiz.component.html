@@ -1,4 +1,6 @@
 <app-nav></app-nav>
+<div style="text-align: right;"><a href="/quizzes" class="btn btn-info" style="margin: 1vh; color: white;">All Quizzes</a></div>
+<div class="loader" *ngIf({{!this.backendService.questions.length}})></div>
 <div class="card">
     <h4 class="card-header quiz-font">Question {{activeQuestionIndex + 1}}</h4>
     <div class="progress">
@@ -24,4 +26,11 @@
         </div>
     </div>
   </div>
+  <div class="alert alert-success container modal-fade" style="max-width: 400px; margin-top: 2vh;" role="alert" *ngIf="isQuizFinished">
+      <h4 class="alert-heading">Well done!</h4>
+      <p>Thank you for taking the quiz!</p>
+      <hr>
+      <button (click)="closeAlert()" class="btn btn-info">Close</button>
+  </div>
+
 

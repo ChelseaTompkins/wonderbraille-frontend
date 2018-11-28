@@ -10,6 +10,7 @@ export class QuizComponent implements OnInit {
   backendService: BackendService;
   userAnswer = '';
   activeQuestionIndex = 0;
+  isQuizFinished = false;
 
   constructor(backendService: BackendService) {
     this.backendService = backendService;
@@ -33,10 +34,11 @@ export class QuizComponent implements OnInit {
 
   onSubmit(userAnswer: string) {
     if (this.backendService.questions[this.activeQuestionIndex].answer !== userAnswer) {
-      console.log('try again');
+      console.log('Try again');
     } else {
       if (this.backendService.questions.length === this.activeQuestionIndex + 1) {
-        alert('Quiz complete');
+        // alert(this.isAlert());
+        this.isQuizFinished = true;
         this.activeQuestionIndex = 0;
       } else {
         this.activeQuestionIndex++;
@@ -52,5 +54,9 @@ export class QuizComponent implements OnInit {
       width: progress
     };
     return progressObj;
+  }
+
+  closeAlert() {
+    return this.isQuizFinished = false;
   }
 }
