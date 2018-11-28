@@ -2,7 +2,7 @@
 <div class="card">
     <h4 class="card-header quiz-font">Question {{activeQuestionIndex + 1}}</h4>
     <div class="progress">
-      <div class="progress-bar progress-bar-striped bg-info" role="progressbar" [ngStyle]="progressBar()" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar progress-bar-striped bg-info  progress-bar-animated" role="progressbar" [ngStyle]="progressBar()" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
     <div class="card-body">
       <h4 class="card-title quiz-font">{{this.backendService.questions[activeQuestionIndex].question}}</h4>

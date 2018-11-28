@@ -47,8 +47,8 @@ export class QuizComponent implements OnInit {
   }
 
   progressBar() {
-    let progress = (this.activeQuestionIndex / this.backendService.questions.length * 100).toFixed(0) + '%';
-    let progressObj = {
+    const progress = (this.activeQuestionIndex / this.backendService.questions.length * 100).toFixed(0) + '%';
+    const progressObj = {
       width: progress
     };
     return progressObj;
