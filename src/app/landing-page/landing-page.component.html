@@ -59,7 +59,8 @@
               <div class="form-group">
                 <input type="password" class="form-control" formControlName="studentPassword" placeholder="Password" required>
               </div>
-              <button type="submit" class="btn btn-info">Register me!</button>
+              <button type="submit" class="btn btn-info">Register me</button>
+              <span *ngIf="isRegistered" style="padding-left: 2vh;" class="register-msg">Register success! Proceed to student login.</span>
             </form>
         </div>
       </div>

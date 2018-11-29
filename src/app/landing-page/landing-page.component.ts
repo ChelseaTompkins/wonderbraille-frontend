@@ -9,6 +9,7 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+  isRegistered = false;
 
   newStudent = new FormGroup({
     studentName: new FormControl(''),
@@ -21,14 +22,14 @@ export class LandingPageComponent implements OnInit {
     studentPassword: new FormControl(''),
   });
 
-  submit = false;
-
   constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
   newStuOnSubmit() {
     this.authService.studentRegister(this.newStudent.value);
+    this.isRegistered = true;
+    this.newStudent.reset();
   }
 
   existingStuOnSubmit() {

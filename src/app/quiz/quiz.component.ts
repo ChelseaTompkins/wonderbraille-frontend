@@ -37,7 +37,6 @@ export class QuizComponent implements OnInit {
       console.log('Try again');
     } else {
       if (this.backendService.questions.length === this.activeQuestionIndex + 1) {
-        // alert(this.isAlert());
         this.isQuizFinished = true;
         this.activeQuestionIndex = 0;
       } else {

@@ -25,9 +25,7 @@ export class AuthService {
 
   studentRegister(body) {
     this.http.post('api/auth/register', body)
-    .subscribe((response: Response) => {
-      alert('Thank you for registering!');
-    });
+    .subscribe(() => {});
   }
 
   verifyUserToken () {
